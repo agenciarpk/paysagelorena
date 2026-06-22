@@ -197,16 +197,8 @@ ul{list-style:none}
 .section-head--center .section-intro{margin-inline:auto}
 
 /* ---------- Manifesto ---------- */
-.manifesto{position:relative;isolation:isolate;overflow:hidden;background:var(--taupe-cta);color:#fff;padding:clamp(80px,14vh,170px) 0;text-align:center}
-/* Imagem de fundo em transparência, fundida ao taupe (soft-light) — dá textura
-   e profundidade para o texto não ficar "solto" num bloco chapado. */
-.manifesto::before{content:"";position:absolute;inset:0;z-index:-2;
-  background:url('../img/loc-1.webp') center/cover no-repeat;
-  opacity:.28;mix-blend-mode:soft-light;transform:scale(1.05)}
-/* Vinheta radial: escurece o miolo onde fica o texto, reforçando o contraste. */
-.manifesto::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:radial-gradient(120% 90% at 50% 45%,transparent 38%,rgba(36,30,24,.42) 100%)}
-.manifesto-inner{position:relative;z-index:1;max-width:880px;margin:0 auto}
+.manifesto{background:var(--taupe-cta);color:#fff;padding:clamp(80px,14vh,170px) 0;text-align:center}
+.manifesto-inner{max-width:880px;margin:0 auto}
 .manifesto .eyebrow{color:rgba(255,255,255,.8)}
 .manifesto-poem{
   font-family:var(--f-serif);font-style:italic;font-weight:400;
