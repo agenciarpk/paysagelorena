@@ -137,6 +137,12 @@ ul{list-style:none}
 .brand-mark{font-family:var(--f-display);font-size:1.65rem;letter-spacing:.18em;text-transform:uppercase}
 .brand-sub{font-family:var(--f-sans);font-size:.6rem;letter-spacing:.46em;text-transform:uppercase;padding-left:.2em;margin-top:.35em;opacity:.9}
 .brand-mark--lg{font-size:2.2rem}
+/* Logo Paysage (SVG mascarado — segue a cor do contexto: branco no hero, ink ao rolar) */
+.brand-logo{display:block;height:clamp(34px,4.4vw,42px);aspect-ratio:840/208;
+  background-color:currentColor;
+  -webkit-mask:url(../img/logo-paysage.svg) no-repeat center/contain;
+  mask:url(../img/logo-paysage.svg) no-repeat center/contain}
+.brand-logo--footer{height:54px;color:#fff}
 
 .nav{display:flex;align-items:center;gap:1.7rem}
 .nav a{
@@ -167,12 +173,12 @@ ul{list-style:none}
 .nav-toggle span:nth-child(3){top:22px}
 
 /* ---------- Hero ---------- */
-.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-start;overflow:hidden}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
 .hero-overlay{position:absolute;inset:0;background:
-  linear-gradient(180deg,rgba(28,24,20,.52) 0%,rgba(28,24,20,.26) 34%,rgba(28,24,20,.44) 66%,rgba(28,24,20,.76) 100%)}
+  linear-gradient(180deg,rgba(28,24,20,.30) 0%,rgba(28,24,20,.14) 30%,rgba(28,24,20,.30) 62%,rgba(28,24,20,.72) 100%)}
 .hero-content{position:relative;z-index:2;width:100%;
-  padding-top:calc(var(--header-h) + 2.2rem);
+  padding-top:calc(var(--header-h) + 2.4rem);
   padding-bottom:clamp(56px,10vh,120px);color:#fff;max-width:var(--maxw)}
 .hero-title{
   font-family:var(--f-display);text-transform:uppercase;
@@ -336,6 +342,33 @@ ul{list-style:none}
 .panel-render{margin-top:2.2rem}
 .panel-render img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:2px}
 .panel-render figcaption{margin-top:.7rem}
+
+/* ---------- Carrossel de ambientes (plantas) ---------- */
+.render-carousel{margin-top:2.2rem}
+.rc-stage{position:relative;border-radius:2px;overflow:hidden;background:var(--taupe-cta)}
+.rc-main{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;transition:opacity .3s var(--ease)}
+.rc-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:42px;height:42px;
+  display:flex;align-items:center;justify-content:center;font-size:1.5rem;line-height:1;
+  color:#fff;background:rgba(20,22,24,.42);border-radius:50%;backdrop-filter:blur(2px);
+  transition:.3s var(--ease);opacity:0}
+.rc-stage:hover .rc-arrow{opacity:1}
+.rc-arrow:hover{background:rgba(20,22,24,.7)}
+.rc-arrow:focus-visible{opacity:1;outline:2px solid #fff;outline-offset:2px}
+.rc-prev{left:12px}
+.rc-next{right:12px}
+.rc-counter{position:absolute;right:12px;bottom:12px;z-index:2;font-family:var(--f-sans);
+  font-size:.66rem;letter-spacing:.08em;color:#fff;background:rgba(20,22,24,.5);
+  padding:.3em .7em;border-radius:2px;backdrop-filter:blur(2px)}
+.rc-thumbs{display:flex;gap:.55rem;margin-top:.7rem;flex-wrap:wrap}
+.rc-thumb{flex:0 0 auto;width:70px;height:48px;border-radius:2px;overflow:hidden;
+  border:1px solid var(--line);opacity:.6;transition:.3s var(--ease);cursor:pointer}
+.rc-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.rc-thumb:hover{opacity:.9}
+.rc-thumb.is-active{opacity:1;border-color:var(--taupe-cta)}
+.rc-thumb:focus-visible{outline:2px solid var(--taupe-cta);outline-offset:2px;opacity:1}
+.rc-cap{margin-top:.7rem;font-family:var(--f-sans);font-size:.68rem;letter-spacing:.02em;color:var(--ink-soft)}
+.render-carousel.is-single .rc-arrow,.render-carousel.is-single .rc-counter,.render-carousel.is-single .rc-thumbs{display:none}
+@media (hover:none){.rc-arrow{opacity:1}}
 .plan-note{margin-top:2.4rem;max-width:80ch;font-family:var(--f-sans);font-size:.68rem;line-height:1.7;letter-spacing:.02em;color:var(--ink-soft)}
 
 /* ---------- Facilites ---------- */
@@ -506,6 +539,27 @@ ul{list-style:none}
   .facilite-grid{gap:34px 14px;max-width:none}
   .facilite-grid li{flex:0 0 calc(50% - 8px)}
   .facilite-grid span{font-size:.64rem;letter-spacing:.05em}
+}
+
+/* ---------- Hero mobile-first: fachada em zona própria + texto em faixa (contraste) ---------- */
+@media (max-width:720px){
+  .hero{min-height:auto;flex-direction:column;align-items:stretch;overflow:visible}
+  .hero picture{display:block;position:relative;height:40svh;min-height:270px;max-height:400px}
+  .hero-bg{position:absolute;inset:0;height:100%;object-position:center top}
+  /* overlay só sobre a imagem, leve — deixa a fachada respirar */
+  .hero-overlay{top:0;bottom:auto;height:40svh;min-height:270px;max-height:400px;
+    background:linear-gradient(180deg,rgba(28,24,20,.26) 0%,rgba(28,24,20,0) 36%,rgba(28,24,20,.30) 100%)}
+  /* texto numa faixa sólida da marca — contraste alto, sem cobrir a torre.
+     Reordena p/ o CTA aparecer na 1ª dobra: eyebrow → título → botões → descrição */
+  .hero-content{position:relative;z-index:2;background:var(--taupe-cta);
+    display:flex;flex-direction:column;
+    padding-top:1.6rem;padding-bottom:calc(2.2rem + env(safe-area-inset-bottom));text-shadow:none}
+  .hero .eyebrow--light{order:1;text-shadow:none;color:rgba(255,255,255,.85);margin-bottom:.45rem}
+  .hero-title{order:2;font-size:clamp(2.2rem,10.5vw,3rem);margin-bottom:1rem;text-shadow:none}
+  .hero-actions{order:3;margin-bottom:0}
+  .hero-lead{order:4;font-size:1.02rem;color:rgba(255,255,255,.92);max-width:46ch;
+    margin:1.6rem 0 0;text-shadow:none}
+  .hero-scroll{display:none}
 }
 
 /* ---------- Reduced motion ---------- */

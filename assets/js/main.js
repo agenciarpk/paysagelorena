@@ -7,10 +7,11 @@
   /* Contato comercial — CONFIRMAR número/inbox do Paysage com a construtora. */
   var WHATS_NUMBER = '5512997897215'; // (12) 99789-7215
 
-  /* Endpoint de captura de leads (CRM/RD Station/serverless/e-mail).
-     Deixe vazio para usar somente o handoff via WhatsApp.
-     Quando definido, o lead é enviado por POST (JSON) ANTES do WhatsApp. */
-  var LEAD_ENDPOINT = '';
+  /* Endpoint de captura de leads → Google Sheets (Google Apps Script Web App).
+     Cole aqui a URL /exec gerada ao publicar o Apps Script (ver
+     assets/apps-script/README-planilha.md). Deixe vazio para usar só o WhatsApp.
+     O lead é enviado por POST (fire-and-forget) e o WhatsApp abre em seguida. */
+  var LEAD_ENDPOINT = ''; // ex.: 'https://script.google.com/macros/s/AKfycb.../exec'
 
   /* ---------- Header scroll state ---------- */
   var header = document.querySelector('.site-header');
@@ -121,6 +122,41 @@
         }
       }
     });
+  });
+
+  /* ---------- Carrossel de ambientes (plantas) ---------- */
+  document.querySelectorAll('[data-carousel]').forEach(function (car) {
+    var main = car.querySelector('.rc-main');
+    var thumbs = Array.prototype.slice.call(car.querySelectorAll('.rc-thumb'));
+    var counter = car.querySelector('.rc-counter');
+    var prev = car.querySelector('.rc-prev');
+    var next = car.querySelector('.rc-next');
+    var baseAlt = (main && main.getAttribute('alt')) || '';
+    var srcs = thumbs.map(function (t) { var i = t.querySelector('img'); return i ? i.getAttribute('src') : ''; });
+    var i = 0;
+
+    if (srcs.length <= 1) { car.classList.add('is-single'); return; }
+
+    function go(n) {
+      i = (n + srcs.length) % srcs.length;
+      main.src = srcs[i];
+      main.alt = baseAlt + ' — imagem ' + (i + 1) + ' de ' + srcs.length;
+      if (counter) counter.textContent = (i + 1) + ' / ' + srcs.length;
+      thumbs.forEach(function (t, k) { t.classList.toggle('is-active', k === i); });
+    }
+    thumbs.forEach(function (t, k) { t.addEventListener('click', function () { go(k); }); });
+    if (prev) prev.addEventListener('click', function () { go(i - 1); });
+    if (next) next.addEventListener('click', function () { go(i + 1); });
+    // swipe (touch)
+    var x0 = null;
+    car.querySelector('.rc-stage').addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    car.querySelector('.rc-stage').addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) go(dx < 0 ? i + 1 : i - 1);
+      x0 = null;
+    }, { passive: true });
+    go(0);
   });
 
   /* ---------- Lightbox gallery (modal dialog w/ focus trap) ---------- */
@@ -242,22 +278,23 @@
       saved.push(data); localStorage.setItem('paysage_leads', JSON.stringify(saved));
     } catch (err) { /* storage indisponível — segue para o WhatsApp */ }
 
-    if (LEAD_ENDPOINT) {
-      setNote('Enviando…', '');
-      fetch(LEAD_ENDPOINT, {
-        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
-      }).then(function (r) {
-        if (!r.ok) throw new Error('bad status');
-        openWhats(data); form.reset();
-        [nome, email, tel].forEach(function (f) { f.removeAttribute('aria-invalid'); });
-      }).catch(function () {
-        // POST falhou — ainda assim oferece o WhatsApp para não perder o lead
-        openWhats(data); form.reset();
-      });
-    } else {
-      openWhats(data); form.reset();
-      [nome, email, tel].forEach(function (f) { f.removeAttribute('aria-invalid'); });
+    // Grava na planilha (Google Sheets via Apps Script), sem bloquear o fluxo.
+    // 'no-cors' + text/plain evita o preflight que o Apps Script não trata;
+    // a linha é gravada mesmo sem podermos ler a resposta.
+    if (LEAD_ENDPOINT && LEAD_ENDPOINT.indexOf('http') === 0) {
+      try {
+        fetch(LEAD_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(data),
+          mode: 'no-cors',
+          keepalive: true
+        }).catch(function () {});
+      } catch (err) { /* ignora — o WhatsApp segue como rede de segurança */ }
     }
+
+    openWhats(data); form.reset();
+    [nome, email, tel].forEach(function (f) { f.removeAttribute('aria-invalid'); });
   });
 
   /* ---------- Animated count-up stats ---------- */

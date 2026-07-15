@@ -32,7 +32,7 @@
 <!-- Fonts -->
 <link rel="preload" href="assets/fonts/daslu-display.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="assets/fonts/gotham-medium.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="stylesheet" href="assets/css/styles.css?v=2026071505" />
 
 <!-- Structured data -->
 <script type="application/ld+json">
@@ -74,8 +74,7 @@
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a href="#top" class="brand" aria-label="Paysage Lorena — início">
-      <span class="brand-mark">Paysage</span>
-      <span class="brand-sub">Lorena</span>
+      <span class="brand-logo" aria-hidden="true"></span>
     </a>
 
     <nav class="nav" id="nav" aria-label="Navegação principal">
@@ -99,8 +98,8 @@
 <!-- ================= HERO ================= -->
 <section class="hero" id="hero">
   <picture>
-    <source media="(max-width:720px)" srcset="assets/img/fachada-1-sm.webp" />
-    <img class="hero-bg" src="assets/img/fachada-1.webp" alt="Fachada do Paysage Lorena ao entardecer" fetchpriority="high" />
+    <source media="(max-width:720px)" srcset="assets/img/fachada-1-sm.webp?v=20260715" />
+    <img class="hero-bg" src="assets/img/fachada-1.webp?v=20260715" alt="Fachada do Paysage Lorena" fetchpriority="high" />
   </picture>
   <div class="hero-overlay"></div>
   <div class="container hero-content">
@@ -139,8 +138,8 @@
   <div class="container split">
     <div class="split-media reveal">
       <picture>
-        <source media="(max-width:720px)" srcset="assets/img/fachada-2-sm.webp" />
-        <img src="assets/img/fachada-2.webp" alt="Perspectiva artística da fachada do Paysage Lorena" loading="lazy" />
+        <source media="(max-width:720px)" srcset="assets/img/fachada-2-sm.webp?v=20260715" />
+        <img src="assets/img/fachada-2.webp?v=20260715" alt="Perspectiva artística da fachada do Paysage Lorena" loading="lazy" />
       </picture>
       <span class="media-caption">Fachada — perspectiva artística</span>
     </div>
@@ -337,7 +336,6 @@
       <button class="tab" role="tab" id="tab-t114" aria-controls="t114" aria-selected="false" tabindex="-1" data-tab="t114">114 m²</button>
       <button class="tab" role="tab" id="tab-t128" aria-controls="t128" aria-selected="false" tabindex="-1" data-tab="t128">128 m²</button>
       <button class="tab" role="tab" id="tab-t137" aria-controls="t137" aria-selected="false" tabindex="-1" data-tab="t137">137 m²</button>
-      <button class="tab" role="tab" id="tab-tgarden" aria-controls="tgarden" aria-selected="false" tabindex="-1" data-tab="tgarden">Garden</button>
       <button class="tab" role="tab" id="tab-trt" aria-controls="trt" aria-selected="false" tabindex="-1" data-tab="trt">Rooftop</button>
       <button class="tab" role="tab" id="tab-tcob" aria-controls="tcob" aria-selected="false" tabindex="-1" data-tab="tcob">Cobertura</button>
     </div>
@@ -345,7 +343,7 @@
     <div class="tab-panels reveal">
       <!-- 69 -->
       <article class="panel is-active" id="t69" role="tabpanel" aria-labelledby="tab-t69" tabindex="0">
-        <div class="panel-plan"><img src="assets/img/planta-69.webp" alt="Planta do apartamento de 69 m²" loading="lazy" /></div>
+        <div class="panel-plan"><img src="assets/img/planta-69.webp?v=20260715" alt="Planta do apartamento de 69 m²" loading="lazy" /></div>
         <div class="panel-info">
           <p class="panel-area">69 m²</p>
           <ul class="panel-feats">
@@ -355,12 +353,24 @@
             <li>Tipo · 3º ao 17º pavimento</li>
           </ul>
           <a class="btn btn--solid btn--sm" href="#contato" data-interest="Apartamento de 69 m²">Tenho interesse</a>
-          <figure class="panel-render"><img src="assets/img/apto-69.webp" alt="Living do apartamento de 69 m²" loading="lazy" /><figcaption>Living — perspectiva artística</figcaption></figure>
+          <div class="render-carousel" data-carousel data-cap="Ambientes do apartamento de 69 m² — perspectivas artísticas">
+            <div class="rc-stage">
+              <img class="rc-main" src="assets/img/apto-69-1.webp" alt="Ambiente do apartamento de 69 m²" loading="lazy" />
+              <button type="button" class="rc-arrow rc-prev" aria-label="Imagem anterior">&#8249;</button>
+              <button type="button" class="rc-arrow rc-next" aria-label="Próxima imagem">&#8250;</button>
+              <span class="rc-counter" aria-hidden="true"></span>
+            </div>
+            <div class="rc-thumbs">
+              <button type="button" class="rc-thumb is-active" aria-label="Imagem 1"><img src="assets/img/apto-69-1.webp" alt="" loading="lazy" /></button>
+              <button type="button" class="rc-thumb" aria-label="Imagem 2"><img src="assets/img/apto-69-2.webp" alt="" loading="lazy" /></button>
+            </div>
+            <p class="rc-cap">Ambientes — perspectivas artísticas</p>
+          </div>
         </div>
       </article>
       <!-- 79 -->
       <article class="panel" id="t79" role="tabpanel" aria-labelledby="tab-t79" tabindex="0" hidden>
-        <div class="panel-plan"><img src="assets/img/planta-79.webp" alt="Planta do apartamento de 79 m²" loading="lazy" /></div>
+        <div class="panel-plan"><img src="assets/img/planta-79.webp?v=20260715" alt="Planta do apartamento de 79 m²" loading="lazy" /></div>
         <div class="panel-info">
           <p class="panel-area">79 m²</p>
           <ul class="panel-feats">
@@ -370,12 +380,26 @@
             <li>Tipo · 3º ao 18º pavimento</li>
           </ul>
           <a class="btn btn--solid btn--sm" href="#contato" data-interest="Apartamento de 79 m²">Tenho interesse</a>
-          <figure class="panel-render"><img src="assets/img/apto-79.webp" alt="Living do apartamento de 79 m²" loading="lazy" /><figcaption>Living — perspectiva artística</figcaption></figure>
+          <div class="render-carousel" data-carousel data-cap="Ambientes do apartamento de 79 m² — perspectivas artísticas">
+            <div class="rc-stage">
+              <img class="rc-main" src="assets/img/apto-79-1.webp" alt="Ambiente do apartamento de 79 m²" loading="lazy" />
+              <button type="button" class="rc-arrow rc-prev" aria-label="Imagem anterior">&#8249;</button>
+              <button type="button" class="rc-arrow rc-next" aria-label="Próxima imagem">&#8250;</button>
+              <span class="rc-counter" aria-hidden="true"></span>
+            </div>
+            <div class="rc-thumbs">
+              <button type="button" class="rc-thumb is-active" aria-label="Imagem 1"><img src="assets/img/apto-79-1.webp" alt="" loading="lazy" /></button>
+              <button type="button" class="rc-thumb" aria-label="Imagem 2"><img src="assets/img/apto-79-2.webp" alt="" loading="lazy" /></button>
+              <button type="button" class="rc-thumb" aria-label="Imagem 3"><img src="assets/img/apto-79-3.webp" alt="" loading="lazy" /></button>
+              <button type="button" class="rc-thumb" aria-label="Imagem 4"><img src="assets/img/apto-79-4.webp" alt="" loading="lazy" /></button>
+            </div>
+            <p class="rc-cap">Ambientes — perspectivas artísticas</p>
+          </div>
         </div>
       </article>
       <!-- 114 -->
       <article class="panel" id="t114" role="tabpanel" aria-labelledby="tab-t114" tabindex="0" hidden>
-        <div class="panel-plan"><img src="assets/img/planta-114.webp" alt="Planta do apartamento de 114 m²" loading="lazy" /></div>
+        <div class="panel-plan"><img src="assets/img/planta-114.webp?v=20260715" alt="Planta do apartamento de 114 m²" loading="lazy" /></div>
         <div class="panel-info">
           <p class="panel-area">114 m²</p>
           <ul class="panel-feats">
@@ -385,12 +409,24 @@
             <li>Tipo · 3º ao 12º pavimento</li>
           </ul>
           <a class="btn btn--solid btn--sm" href="#contato" data-interest="Apartamento de 114 m²">Tenho interesse</a>
-          <figure class="panel-render"><img src="assets/img/apto-114.webp" alt="Living do apartamento de 114 m²" loading="lazy" /><figcaption>Living — perspectiva artística</figcaption></figure>
+          <div class="render-carousel" data-carousel data-cap="Ambientes do apartamento de 114 m² — perspectivas artísticas">
+            <div class="rc-stage">
+              <img class="rc-main" src="assets/img/apto-114-1.webp" alt="Ambiente do apartamento de 114 m²" loading="lazy" />
+              <button type="button" class="rc-arrow rc-prev" aria-label="Imagem anterior">&#8249;</button>
+              <button type="button" class="rc-arrow rc-next" aria-label="Próxima imagem">&#8250;</button>
+              <span class="rc-counter" aria-hidden="true"></span>
+            </div>
+            <div class="rc-thumbs">
+              <button type="button" class="rc-thumb is-active" aria-label="Imagem 1"><img src="assets/img/apto-114-1.webp" alt="" loading="lazy" /></button>
+              <button type="button" class="rc-thumb" aria-label="Imagem 2"><img src="assets/img/apto-114-2.webp" alt="" loading="lazy" /></button>
+            </div>
+            <p class="rc-cap">Ambientes — perspectivas artísticas</p>
+          </div>
         </div>
       </article>
       <!-- 128 -->
       <article class="panel" id="t128" role="tabpanel" aria-labelledby="tab-t128" tabindex="0" hidden>
-        <div class="panel-plan"><img src="assets/img/planta-128.webp" alt="Planta do apartamento de 128 m²" loading="lazy" /></div>
+        <div class="panel-plan"><img src="assets/img/planta-128.webp?v=20260715" alt="Planta do apartamento de 128 m²" loading="lazy" /></div>
         <div class="panel-info">
           <p class="panel-area">128 m²</p>
           <ul class="panel-feats">
@@ -400,12 +436,25 @@
             <li>Tipo · 3º ao 17º pavimento</li>
           </ul>
           <a class="btn btn--solid btn--sm" href="#contato" data-interest="Apartamento de 128 m²">Tenho interesse</a>
-          <figure class="panel-render"><img src="assets/img/apto-128.webp" alt="Living do apartamento de 128 m²" loading="lazy" /><figcaption>Living — perspectiva artística</figcaption></figure>
+          <div class="render-carousel" data-carousel data-cap="Ambientes do apartamento de 128 m² — perspectivas artísticas">
+            <div class="rc-stage">
+              <img class="rc-main" src="assets/img/apto-128-1.webp" alt="Ambiente do apartamento de 128 m²" loading="lazy" />
+              <button type="button" class="rc-arrow rc-prev" aria-label="Imagem anterior">&#8249;</button>
+              <button type="button" class="rc-arrow rc-next" aria-label="Próxima imagem">&#8250;</button>
+              <span class="rc-counter" aria-hidden="true"></span>
+            </div>
+            <div class="rc-thumbs">
+              <button type="button" class="rc-thumb is-active" aria-label="Imagem 1"><img src="assets/img/apto-128-1.webp" alt="" loading="lazy" /></button>
+              <button type="button" class="rc-thumb" aria-label="Imagem 2"><img src="assets/img/apto-128-2.webp" alt="" loading="lazy" /></button>
+              <button type="button" class="rc-thumb" aria-label="Imagem 3"><img src="assets/img/apto-128-3.webp" alt="" loading="lazy" /></button>
+            </div>
+            <p class="rc-cap">Ambientes — perspectivas artísticas</p>
+          </div>
         </div>
       </article>
       <!-- 137 -->
       <article class="panel" id="t137" role="tabpanel" aria-labelledby="tab-t137" tabindex="0" hidden>
-        <div class="panel-plan"><img src="assets/img/planta-137.webp" alt="Planta do apartamento de 137 m²" loading="lazy" /></div>
+        <div class="panel-plan"><img src="assets/img/planta-137.webp?v=20260715" alt="Planta do apartamento de 137 m²" loading="lazy" /></div>
         <div class="panel-info">
           <p class="panel-area">137 m²</p>
           <ul class="panel-feats">
@@ -415,23 +464,20 @@
             <li>Tipo · 13º ao 17º pavimento</li>
           </ul>
           <a class="btn btn--solid btn--sm" href="#contato" data-interest="Apartamento de 137 m²">Tenho interesse</a>
-          <figure class="panel-render"><img src="assets/img/apto-137.webp" alt="Living do apartamento de 137 m²" loading="lazy" /><figcaption>Living — perspectiva artística</figcaption></figure>
-        </div>
-      </article>
-      <!-- Garden -->
-      <article class="panel" id="tgarden" role="tabpanel" aria-labelledby="tab-tgarden" tabindex="0" hidden>
-        <div class="panel-plan"><img src="assets/img/planta-garden.webp" alt="Planta humanizada da unidade Garden de 152 m²" loading="lazy" /></div>
-        <div class="panel-info">
-          <p class="panel-area">152 m²</p>
-          <span class="panel-tag">Garden</span>
-          <ul class="panel-feats">
-            <li>3 suítes</li>
-            <li>2 vagas</li>
-            <li>Varanda gourmet integrada</li>
-            <li>Jardim privativo com piscina</li>
-          </ul>
-          <a class="btn btn--solid btn--sm" href="#contato" data-interest="Unidade Garden (152 m²)">Tenho interesse</a>
-          <figure class="panel-render"><img src="assets/img/apto-garden.webp" alt="Living da unidade Garden de 152 m²" loading="lazy" /><figcaption>Living — perspectiva artística</figcaption></figure>
+          <div class="render-carousel" data-carousel data-cap="Ambientes do apartamento de 137 m² — perspectivas artísticas">
+            <div class="rc-stage">
+              <img class="rc-main" src="assets/img/apto-137-1.webp" alt="Ambiente do apartamento de 137 m²" loading="lazy" />
+              <button type="button" class="rc-arrow rc-prev" aria-label="Imagem anterior">&#8249;</button>
+              <button type="button" class="rc-arrow rc-next" aria-label="Próxima imagem">&#8250;</button>
+              <span class="rc-counter" aria-hidden="true"></span>
+            </div>
+            <div class="rc-thumbs">
+              <button type="button" class="rc-thumb is-active" aria-label="Imagem 1"><img src="assets/img/apto-137-1.webp" alt="" loading="lazy" /></button>
+              <button type="button" class="rc-thumb" aria-label="Imagem 2"><img src="assets/img/apto-137-2.webp" alt="" loading="lazy" /></button>
+              <button type="button" class="rc-thumb" aria-label="Imagem 3"><img src="assets/img/apto-137-3.webp" alt="" loading="lazy" /></button>
+            </div>
+            <p class="rc-cap">Ambientes — perspectivas artísticas</p>
+          </div>
         </div>
       </article>
       <!-- Rooftop -->
@@ -452,7 +498,7 @@
       </article>
       <!-- Cobertura -->
       <article class="panel" id="tcob" role="tabpanel" aria-labelledby="tab-tcob" tabindex="0" hidden>
-        <div class="panel-plan"><img src="assets/img/planta-cobertura.webp" alt="Planta da cobertura" loading="lazy" /></div>
+        <div class="panel-plan"><img src="assets/img/planta-cobertura.webp?v=20260715" alt="Planta da cobertura" loading="lazy" /></div>
         <div class="panel-info">
           <p class="panel-area">220 e 229 m²</p>
           <span class="panel-tag">Cobertura</span>
@@ -463,7 +509,21 @@
             <li>Tipo · 19º pavimento</li>
           </ul>
           <a class="btn btn--solid btn--sm" href="#contato" data-interest="Cobertura (220/229 m²)">Tenho interesse</a>
-          <figure class="panel-render"><img src="assets/img/apto-cobertura.webp" alt="Living da cobertura" loading="lazy" /><figcaption>Living — perspectiva artística</figcaption></figure>
+          <div class="render-carousel" data-carousel data-cap="Ambientes da cobertura — perspectivas artísticas">
+            <div class="rc-stage">
+              <img class="rc-main" src="assets/img/apto-cob-1.webp" alt="Ambiente da cobertura" loading="lazy" />
+              <button type="button" class="rc-arrow rc-prev" aria-label="Imagem anterior">&#8249;</button>
+              <button type="button" class="rc-arrow rc-next" aria-label="Próxima imagem">&#8250;</button>
+              <span class="rc-counter" aria-hidden="true"></span>
+            </div>
+            <div class="rc-thumbs">
+              <button type="button" class="rc-thumb is-active" aria-label="Imagem 1"><img src="assets/img/apto-cob-1.webp" alt="" loading="lazy" /></button>
+              <button type="button" class="rc-thumb" aria-label="Imagem 2"><img src="assets/img/apto-cob-2.webp" alt="" loading="lazy" /></button>
+              <button type="button" class="rc-thumb" aria-label="Imagem 3"><img src="assets/img/apto-cob-3.webp" alt="" loading="lazy" /></button>
+              <button type="button" class="rc-thumb" aria-label="Imagem 4"><img src="assets/img/apto-cob-4.webp" alt="" loading="lazy" /></button>
+            </div>
+            <p class="rc-cap">Ambientes — perspectivas artísticas</p>
+          </div>
         </div>
       </article>
     </div>
@@ -574,7 +634,7 @@
         o uso de novas tecnologias orientam nossas decisões — porque construímos com
         responsabilidade, visão e foco no futuro. Para você e para o amanhã.
       </p>
-      <img class="constru-logo" src="assets/img/logo-teixeira-pinto.png" alt="Teixeira Pinto Construtora" loading="lazy" />
+      <img class="constru-logo" src="assets/img/logo-teixeira-pinto.svg" alt="Teixeira Pinto Construtora" loading="lazy" />
     </div>
     <div class="split-media reveal">
       <img src="assets/img/lobby-2.webp" alt="Ambiente assinado pela Teixeira Pinto" loading="lazy" />
@@ -627,7 +687,6 @@
           <option>Apartamento de 114 m²</option>
           <option>Apartamento de 128 m²</option>
           <option>Apartamento de 137 m²</option>
-          <option>Unidade Garden (152 m²)</option>
           <option>Unidade Rooftop (190/199 m²)</option>
           <option>Cobertura (220/229 m²)</option>
           <option>Ainda não sei</option>
@@ -766,8 +825,7 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <span class="brand-mark brand-mark--lg">Paysage</span>
-      <span class="brand-sub">Lorena</span>
+      <span class="brand-logo brand-logo--footer" role="img" aria-label="Paysage Lorena"></span>
       <p>Av. Oswaldo Aranha, 1751 — Cruz<br />Lorena / SP</p>
     </div>
     <div class="footer-col">
@@ -786,7 +844,7 @@
       <a href="https://www.instagram.com/teixeirapintoconstrutora" target="_blank" rel="noopener">Instagram</a>
     </div>
     <div class="footer-col footer-logo">
-      <img src="assets/img/logo-teixeira-pinto.png" alt="Teixeira Pinto Construtora" loading="lazy" />
+      <img src="assets/img/logo-teixeira-pinto.svg" alt="Teixeira Pinto Construtora" loading="lazy" />
     </div>
   </div>
   <div class="container footer-legal">
@@ -815,6 +873,6 @@
   <button class="lb-nav lb-next" id="lbNext" aria-label="Próximo">&#8250;</button>
 </div>
 
-<script src="assets/js/main.js" defer></script>
+<script src="assets/js/main.js?v=2026071502" defer></script>
 </body>
 </html>
